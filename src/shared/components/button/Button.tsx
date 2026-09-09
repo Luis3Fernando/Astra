@@ -12,11 +12,13 @@ import { COLORS } from '@/core/theme/colors';
 import { styles } from './Button.styles';
 
 export type ButtonVariant = 'primary' | 'dark' | 'outline' | 'ghost' | 'error';
+export type ButtonFontWeight = 'regular' | 'semiBold' | 'bold';
 
 export interface ButtonProps {
   label: string;
   onPress: () => void;
   variant?: ButtonVariant;
+  fontWeight?: ButtonFontWeight;
   isLoading?: boolean;
   disabled?: boolean;
   leftIcon?: ReactNode;
@@ -29,6 +31,7 @@ export const Button = ({
   label,
   onPress,
   variant = 'primary',
+  fontWeight = 'regular',
   isLoading = false,
   disabled = false,
   leftIcon,
@@ -61,6 +64,7 @@ export const Button = ({
             <Text
               style={[
                 styles.text,
+                styles[`weight_${fontWeight}`],
                 styles[`text_${variant}`],
                 isInteractionDisabled && styles.disabledText,
                 textStyle,

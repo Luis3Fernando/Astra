@@ -21,11 +21,18 @@ export const styles = StyleSheet.create({
   },
   text: {
     fontSize: 14,
-    fontWeight: '700',
     letterSpacing: 1.5,
     textTransform: 'uppercase',
   },
-
+  weight_regular: {
+    fontFamily: 'SpaceGrotesk-Regular',
+  },
+  weight_semiBold: {
+    fontFamily: 'SpaceGrotesk-SemiBold',
+  },
+  weight_bold: {
+    fontFamily: 'SpaceGrotesk-Bold',
+  },
   variant_primary: {
     backgroundColor: COLORS.primary,
   },
@@ -45,7 +52,6 @@ export const styles = StyleSheet.create({
   variant_error: {
     backgroundColor: COLORS.error,
   },
-
   text_primary: {
     color: COLORS.textPrimary,
   },
@@ -61,7 +67,6 @@ export const styles = StyleSheet.create({
   text_error: {
     color: COLORS.textPrimary,
   },
-
   disabled: {
     backgroundColor: COLORS.disabled,
     borderColor: 'transparent',
