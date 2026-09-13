@@ -26,7 +26,7 @@ export interface PlanetExploration {
   estimatedFlightYears: number;
   isHabitable: boolean;
   maxCrewSize: number;
-  surfaceUVLevel: 'Bajo' | 'Moderado' | 'Extremo' | 'Crítico';
+  surfaceUVLevel: 'Bajo' | 'Moderado' | 'Extremo' | 'Crítico' | 'Seguro';
   primaryFeature: string;
 }
 
