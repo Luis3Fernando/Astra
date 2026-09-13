@@ -1,11 +1,30 @@
 import { ImageSourcePropType } from 'react-native';
 
+export interface PlanetHotspot {
+  id: string;
+  title: string;
+  topPercent: number;
+  leftPercent: number;
+}
+
 export interface PlanetMetrics {
   radiusKm: number;
   gravityMs2: number;
   meanTempC: number;
   orbitalPeriodDays: number;
   moonsCount: number;
+  distanceFromSunKm: string;
+  densityGcm3: number;
+  rotationPeriodHours: number;
+  planetType: string;
+}
+
+export interface PlanetExploration {
+  curiosityFact: string;
+  estimatedFlightYears: number;
+  maxCrewSize: number;
+  surfaceUVLevel: 'Bajo' | 'Moderado' | 'Extremo' | 'Crítico';
+  primaryFeature: string;
 }
 
 export interface Planet {
@@ -16,5 +35,7 @@ export interface Planet {
   orderFromSun: number;
   accentColor: string;
   image: ImageSourcePropType;
+  hotspots: PlanetHotspot[];
   metrics: PlanetMetrics;
+  exploration: PlanetExploration;
 }

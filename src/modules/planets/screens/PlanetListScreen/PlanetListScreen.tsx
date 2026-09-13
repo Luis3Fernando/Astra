@@ -7,11 +7,11 @@ import Animated, {
   runOnJS,
 } from 'react-native-reanimated';
 import { useThemeStore } from '@/core/state/useThemeStore';
-import { StarFieldOverlay } from '../../components/OrbitSelector/StarFieldOverlay';
-import { PlanetWheelItem } from '../../components/OrbitSelector/PlanetWheelItem';
-import { ITEM_HEIGHT } from '../../components/OrbitSelector/PlanetWheelItem.styles';
-import { usePlanets } from '../../hooks/usePlanets';
 import { styles } from './PlanetListScreen.styles';
+import { usePlanets } from '../../hooks/usePlanets';
+import { ITEM_HEIGHT } from './components/OrbitSelector/PlanetWheelItem.styles';
+import { StarFieldOverlay } from './components/OrbitSelector/StarFieldOverlay';
+import { PlanetWheelItem } from './components/OrbitSelector/PlanetWheelItem';
 
 const { height: WINDOW_HEIGHT } = Dimensions.get('window');
 const HEADER_OFFSET = 140;
