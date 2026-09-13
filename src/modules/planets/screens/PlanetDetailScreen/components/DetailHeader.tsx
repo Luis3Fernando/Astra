@@ -6,11 +6,21 @@ import { FONTS } from '@/core/theme/typography';
 
 interface DetailHeaderProps {
   onBack: () => void;
+  onPrev: () => void;
+  onNext: () => void;
   accentColor: string;
   title?: string;
+  disabled?: boolean;
 }
 
-export const DetailHeader = ({ onBack, accentColor, title = 'SOLAR SYSTEM' }: DetailHeaderProps) => {
+export const DetailHeader = ({
+  onBack,
+  onPrev,
+  onNext,
+  accentColor,
+  title = 'SOLAR SYSTEM',
+  disabled = false,
+}: DetailHeaderProps) => {
   return (
     <View style={styles.container}>
       <Pressable onPress={onBack} style={styles.iconButton}>
@@ -20,10 +30,18 @@ export const DetailHeader = ({ onBack, accentColor, title = 'SOLAR SYSTEM' }: De
       <Text style={styles.headerTitle}>{title}</Text>
 
       <View style={styles.navArrowsGroup}>
-        <Pressable style={styles.stepButton} onPress={() => {}}>
-          <Ionicons name="chevron-back" size={16} color={COLORS.textSecondary} />
+        <Pressable
+          style={[styles.stepButton, { borderColor: `${accentColor}44` }]}
+          onPress={onPrev}
+          disabled={disabled}
+        >
+          <Ionicons name="chevron-back" size={16} color={accentColor} />
         </Pressable>
-        <Pressable style={[styles.stepButton, { borderColor: `${accentColor}66` }]} onPress={() => {}}>
+        <Pressable
+          style={[styles.stepButton, { borderColor: `${accentColor}44` }]}
+          onPress={onNext}
+          disabled={disabled}
+        >
           <Ionicons name="chevron-forward" size={16} color={accentColor} />
         </Pressable>
       </View>
@@ -68,7 +86,6 @@ const styles = StyleSheet.create({
     borderRadius: 17,
     backgroundColor: 'rgba(19, 18, 25, 0.75)',
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.1)',
     justifyContent: 'center',
     alignItems: 'center',
   },
