@@ -19,6 +19,7 @@ import { SecondDetailPage } from './pages/SecondDetailPage';
 import { ThirdDetailPage } from './pages/ThirdDetailPage';
 import { SpaceTransitionOverlay } from './components/SpaceTransitionOverlay';
 import { StarFieldOverlay } from '../PlanetListScreen/components/OrbitSelector/StarFieldOverlay';
+import { useUserConfigStore } from '@/core/state/useUserConfigStore';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
@@ -35,9 +36,11 @@ export const PlanetDetailScreen = () => {
 
   const setPlanetTheme = useThemeStore((state) => state.setPlanetTheme);
   const setCustomAccent = useThemeStore((state) => state.setCustomAccent);
-
+  const setLastSelectedPlanetId = useUserConfigStore((state) => state.setLastSelectedPlanetId);
+  
   useEffect(() => {
-    if (planet) {
+  if (planet) {
+      setLastSelectedPlanetId(planet.id);
       if (planet.id in COLORS.planets) {
         setPlanetTheme(planet.id as PlanetKey);
       } else {
@@ -46,7 +49,7 @@ export const PlanetDetailScreen = () => {
       scrollRef.current?.scrollTo({ y: 0, animated: false });
       setActivePageIndex(0);
     }
-  }, [planet, setPlanetTheme, setCustomAccent]);
+  }, [planet, setPlanetTheme, setCustomAccent, setLastSelectedPlanetId]);
 
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const offsetY = event.nativeEvent.contentOffset.y;

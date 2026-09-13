@@ -6,9 +6,11 @@ interface UserConfigState {
   hasCompletedOnboarding: boolean;
   isAudioEnabled: boolean;
   favoritePlanetId: string | null;
+  lastSelectedPlanetId: string | null;
   completeOnboarding: () => void;
   resetOnboarding: () => void;
   toggleFavoritePlanet: (planetId: string) => boolean;
+  setLastSelectedPlanetId: (planetId: string) => void;
 }
 
 export const useUserConfigStore = create<UserConfigState>()(
@@ -17,6 +19,7 @@ export const useUserConfigStore = create<UserConfigState>()(
       hasCompletedOnboarding: false,
       isAudioEnabled: true,
       favoritePlanetId: null,
+      lastSelectedPlanetId: null,
       completeOnboarding: () => set({ hasCompletedOnboarding: true }),
       resetOnboarding: () => set({ hasCompletedOnboarding: false }),
       toggleFavoritePlanet: (planetId: string) => {
@@ -25,6 +28,8 @@ export const useUserConfigStore = create<UserConfigState>()(
         set({ favoritePlanetId: isNowFavorite ? planetId : null });
         return isNowFavorite;
       },
+      setLastSelectedPlanetId: (planetId: string) =>
+        set({ lastSelectedPlanetId: planetId }),
     }),
     {
       name: 'astra-user-config',
