@@ -96,7 +96,7 @@ export const PlanetListScreen = () => {
 
       <View style={styles.header}>
         <Text style={styles.subtitle}>SISTEMA SOLAR</Text>
-        <Text style={[styles.title, { color: activeAccent }]}>PLANETS</Text>
+        <Text style={[styles.title, { color: activeAccent }]}>PLANETAS</Text>
       </View>
 
       <Animated.FlatList
