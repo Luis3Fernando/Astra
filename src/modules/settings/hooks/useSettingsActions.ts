@@ -17,10 +17,16 @@ export const useSettingsActions = () => {
   };
 
   const openBuyMeACoffee = async () => {
-    const url = 'https://buymeacoffee.com';
-    const canOpen = await Linking.canOpenURL(url);
-    if (canOpen) {
-      await Linking.openURL(url);
+    const url = 'https://buymeacoffee.com/louis3l3';
+    try {
+      const canOpen = await Linking.canOpenURL(url);
+      if (canOpen) {
+        await Linking.openURL(url);
+      } else {
+        Alert.alert('Error', 'No se pudo abrir el navegador.');
+      }
+    } catch {
+      Alert.alert('Error', 'Ocurrió un problema al abrir el enlace.');
     }
   };
 
