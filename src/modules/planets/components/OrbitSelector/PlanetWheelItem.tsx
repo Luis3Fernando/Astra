@@ -8,6 +8,7 @@ import Animated, {
   Extrapolation,
 } from 'react-native-reanimated';
 import { Planet } from '@/core/types/planet.types';
+import { COLORS } from '@/core/theme/colors';
 import { styles, ITEM_HEIGHT } from './PlanetWheelItem.styles';
 
 interface Props {
@@ -41,13 +42,13 @@ export const PlanetWheelItem = ({ planet, index, scrollY, onPress }: Props) => {
     const opacity = interpolate(
       scrollY.value,
       inputRange,
-      [0.45, 1, 0.45],
+      [0.4, 1, 0.4],
       Extrapolation.CLAMP
     );
     const color = interpolateColor(
       scrollY.value,
       inputRange,
-      ['#FF8A50', planet.accentColor, '#FF8A50']
+      [COLORS.textMuted, planet.accentColor, COLORS.textMuted]
     );
     const scale = interpolate(
       scrollY.value,
