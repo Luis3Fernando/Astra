@@ -140,7 +140,7 @@ export const SettingsScreen = () => {
                 </View>
                 <Text style={styles.rowLabel}>Contactar al desarrollador</Text>
               </View>
-              <Feather name="chevron-right" size={18} color={COLORS.textMuted} />
+              <Feather name="external-link" size={16} color={COLORS.textMuted} />
             </Pressable>
           </View>
         </View>
@@ -167,7 +167,7 @@ export const SettingsScreen = () => {
                 </View>
                 <Text style={styles.rowLabel}>Versión</Text>
               </View>
-              <Text style={styles.rowRightValue}>1.0.0 (Build 2026)</Text>
+              <Text style={styles.rowRightValue}>1.0.0 (2026)</Text>
             </View>
           </View>
         </View>

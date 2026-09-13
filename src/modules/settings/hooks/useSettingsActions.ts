@@ -1,16 +1,12 @@
 import { Alert, Linking } from 'react-native';
 import { useRouter } from 'expo-router';
-import { useUserConfigStore } from '@/core/state/useUserConfigStore';
-import { useThemeStore } from '@/core/state/useThemeStore';
 
 export const useSettingsActions = () => {
   const router = useRouter();
-  const resetTheme = useThemeStore((state) => state.resetTheme);
-  const resetAllSettings = useUserConfigStore((state) => state.resetAllSettings);
 
   const openEmailContact = async () => {
-    const email = 'support@astra.app';
-    const subject = encodeURIComponent('Astra App - Contacto y Feedback');
+    const email = 'luisfernando3chr@gmail.com';
+    const subject = encodeURIComponent('Astra App - Contacto');
     const url = `mailto:${email}?subject=${subject}`;
     const canOpen = await Linking.canOpenURL(url);
     if (canOpen) {
@@ -32,28 +28,9 @@ export const useSettingsActions = () => {
     router.push('/settings/about');
   };
 
-  const confirmResetSettings = () => {
-    Alert.alert(
-      'Restablecer Ajustes',
-      '¿Deseas volver a la configuración inicial? Se eliminará el planeta favorito guardado.',
-      [
-        { text: 'Cancelar', style: 'cancel' },
-        {
-          text: 'Restablecer',
-          style: 'destructive',
-          onPress: () => {
-            resetAllSettings();
-            resetTheme();
-          },
-        },
-      ]
-    );
-  };
-
   return {
     openEmailContact,
     openBuyMeACoffee,
     navigateToAbout,
-    confirmResetSettings,
   };
 };
