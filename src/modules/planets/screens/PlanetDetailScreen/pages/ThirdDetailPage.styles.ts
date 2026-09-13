@@ -112,4 +112,21 @@ export const styles = StyleSheet.create({
     color: COLORS.textSecondary,
     lineHeight: 16,
   },
+  toastContainer: {
+    position: 'absolute',
+    top: 50,
+    alignSelf: 'center',
+    backgroundColor: 'rgba(40, 39, 50, 0.95)',
+    paddingVertical: 9,
+    paddingHorizontal: 18,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.1)',
+    zIndex: 99,
+  },
+  toastText: {
+  fontFamily: FONTS.semiBold,
+  fontSize: 12,
+  color: COLORS.textPrimary,
+},
 });
