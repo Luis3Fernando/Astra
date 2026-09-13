@@ -13,7 +13,9 @@ export interface PlanetMetrics {
   meanTempC: number;
   orbitalPeriodDays: number;
   moonsCount: number;
+  notableMoons: string[];
   distanceFromSunKm: string;
+  distanceFromEarthKm: string;
   densityGcm3: number;
   rotationPeriodHours: number;
   planetType: string;
@@ -22,6 +24,7 @@ export interface PlanetMetrics {
 export interface PlanetExploration {
   curiosityFact: string;
   estimatedFlightYears: number;
+  isHabitable: boolean;
   maxCrewSize: number;
   surfaceUVLevel: 'Bajo' | 'Moderado' | 'Extremo' | 'Crítico';
   primaryFeature: string;
